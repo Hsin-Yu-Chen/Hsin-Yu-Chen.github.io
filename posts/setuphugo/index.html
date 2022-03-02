@@ -185,12 +185,24 @@
         
         <p>ENV :</p>
 <ol>
-<li>OS : Ubuntu 18.04 Desktop</li>
-<li>Hugo : v0.93</li>
+<li>OS  : Ubuntu 18.04 Desktop</li>
+<li>Hugo : v0.93.0</li>
 </ol>
-<h2 id="step-1-install-hugo-packages">
-  Step 1. Install Hugo Packages
-  <a class="heading-link" href="#step-1-install-hugo-packages">
+<h2 id="what-is-hugo-">
+  What is Hugo ?
+  <a class="heading-link" href="#what-is-hugo-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<blockquote>
+<p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (Notes : More Hugo introduction, please see <a href="https://gohugo.io/about/what-is-hugo/">hugo website</a>.)</p>
+</blockquote>
+<p>Hugo has many installation methods, including Windows/macOS/Linux.<br>
+Now, we will show you how to install in <strong>Linux</strong>.<br>
+Please Follow the following steps:</p>
+<h2 id="step-1emspinstall-hugo">
+  Step 1. Install Hugo.
+  <a class="heading-link" href="#step-1emspinstall-hugo">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
@@ -198,73 +210,79 @@
 appropriate version for your OS and architecture.</p>
 <ol>
 <li>
-<p>Open your bowser to <a href="https://github.com/gohugoio/hugo/releases">Dowload Packages</a>.  (Here is hugo_0.93.0_Linux-64bit.deb)<br>
+<p>Open bowser to <a href="https://github.com/gohugoio/hugo/releases">Dowload Packages</a>. (Here is hugo_0.93.0_Linux-64bit.deb)<br>
 <img src="/posts/img/1.1_packages.png" alt=""></p>
 </li>
 <li>
-<p>Verify it&rsquo;s install Success.</p>
+<p>Verify install Success.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo version
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo version
 </span></span></code></pre></div><p><img src="/posts/img/1.2_version.png" alt=""></p>
-<h2 id="step-2-build-the-docs">
-  Step 2. Build the Docs
-  <a class="heading-link" href="#step-2-build-the-docs">
+<h2 id="step-2emspcreate-new-site">
+  Step 2. Create New Site.
+  <a class="heading-link" href="#step-2emspcreate-new-site">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
-<p>Hugo has it&rsquo;s own example site which happens to also be the documentation site
-you are reading right now.</p>
-<p>Follow the following steps:</p>
-<ol>
-<li>Create New Site.</li>
-</ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo new site $prject_name  
 </span></span><span style="display:flex;"><span> $ cd $prject_name
 </span></span></code></pre></div><p><img src="/posts/img/2.1_create_site.png" alt=""></p>
-<ol start="2">
-<li>Clone the <a href="https://themes.gohugo.io/">Hugo Themes</a> to your project.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ git clone $themes_url themes/$themes_name
-</span></span></code></pre></div><ol start="3">
-<li>Copy files from themes <code>examplesite</code> folder.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ sudo cp -r themes/$themes_name/exampleSite/* .
-</span></span></code></pre></div><ol start="4">
-<li>Configure your <code>config.toml</code> file.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>baseURL = <span style="font-style:italic">&#34;https://{your_github_account}.github.io&#34;</span>
-</span></span><span style="display:flex;"><span>theme = <span style="font-style:italic">&#34;</span>$themes_name<span style="font-style:italic">&#34;</span>
-</span></span></code></pre></div><ol start="5">
-<li>Run Hugo in server mode.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo server -D
-</span></span></code></pre></div><ol start="6">
-<li>
-<p>Open your bowser to : http://localhost:1313.</p>
-</li>
-<li>
-<p>Packup your project and will gernal <code>public</code> folder.</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo
-</span></span></code></pre></div><p><img src="/posts/img/2.2_clone.png" alt=""></p>
-<h2 id="step-3-push-into-your-github-pages">
-  Step 3. Push into your Github Pages
-  <a class="heading-link" href="#step-3-push-into-your-github-pages">
+<h2 id="step-3emspadd-a-theme">
+  Step 3. Add A Theme.
+  <a class="heading-link" href="#step-3emspadd-a-theme">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
 <ol>
-<li>Create New Repo.</li>
+<li>Clone the <a href="https://themes.gohugo.io/">Hugo Themes</a> to your project.</li>
 </ol>
-<p><img src="/posts/img/3.1_repo.png" alt=""></p>
-<ol start="2">
-<li>Create Repo name with : {your_github_account}.github.io</li>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ git clone $themes_url themes/$themes_name
+</span></span></code></pre></div><ol start="2">
+<li>Copy files from themes <code>examplesite</code> folder.</li>
 </ol>
-<p><img src="/posts/img/3.2_repo_name.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ sudo cp -r themes/$themes_name/exampleSite/* .
+</span></span></code></pre></div><p><img src="/posts/img/2.2_clone.png" alt=""></p>
 <ol start="3">
-<li>Push <code>public</code> folder to github.</li>
+<li>Configure <code>config.toml</code> file.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>baseURL = <span style="font-style:italic">&#34;https://{your_github_account}.github.io&#34;</span>
+</span></span><span style="display:flex;"><span>theme = <span style="font-style:italic">&#34;</span>$themes_name<span style="font-style:italic">&#34;</span>
+</span></span></code></pre></div><h2 id="step-4emspstart-the-hugo-server">
+  Step 4. Start the Hugo Server.
+  <a class="heading-link" href="#step-4emspstart-the-hugo-server">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ol>
+<li>Run Hugo in server mode.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo server -D
+</span></span></code></pre></div><p><img src="/posts/img/2.3_server.png" alt=""></p>
+<ol start="2">
+<li>Open bowser to : http://localhost:1313.</li>
+<li>Packup project and will gernal <code>public</code> folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo
+</span></span></code></pre></div><p><img src="/posts/img/2.4_hugo.png" alt=""></p>
+<h2 id="step-5emsppush-into-your-github-pages">
+  Step 5. Push into your Github Pages
+  <a class="heading-link" href="#step-5emsppush-into-your-github-pages">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ol>
+<li>
+<p>Create New Repo.<br>
+<img src="/posts/img/3.1_repo.png" alt=""></p>
+</li>
+<li>
+<p>Create Repo name with : {your_github_account}.github.io<br>
+<img src="/posts/img/3.2_repo_name.png" alt=""></p>
+</li>
+<li>
+<p>Push <code>public</code> folder to github.</p>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ cd $prject_name/public  
 </span></span><span style="display:flex;"><span> $ git init  
@@ -275,11 +293,11 @@ you are reading right now.</p>
 </span></span><span style="display:flex;"><span> $ git remote add origin https://github.com/{your_github_account}/{your_github_account}.github.io.git  
 </span></span><span style="display:flex;"><span> $ git push -u origin main  
 </span></span></code></pre></div><ol start="4">
-<li>Open your bowser to : https://{your_github_account}.github.io</li>
+<li>Open bowser to : https://{your_github_account}.github.io</li>
 </ol>
-<h2 id="step-4-have-fun">
-  Step 4. Have fun
-  <a class="heading-link" href="#step-4-have-fun">
+<h2 id="step-6emsphave-fun">
+  Step 6. Have fun.
+  <a class="heading-link" href="#step-6emsphave-fun">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>

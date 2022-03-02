@@ -14,10 +14,10 @@
       
       <guid>https://hsin-yu-chen.github.io/posts/setuphugo/</guid>
       <description>ENV :
- OS : Ubuntu 18.04 Desktop Hugo : v0.93  Step 1. Install Hugo Packages    Goto hugo releases and download the appropriate version for your OS and architecture.
-  Open your bowser to Dowload Packages. (Here is hugo_0.93.0_Linux-64bit.deb)
-  Verify it&amp;rsquo;s install Success.
-  $ hugo version Step 2. Build the Docs    Hugo has it&amp;rsquo;s own example site which happens to also be the documentation site you are reading right now.</description>
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?     Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (Notes : More Hugo introduction, please see hugo website.)
+ Hugo has many installation methods, including Windows/macOS/Linux.
+Now, we will show you how to install in Linux.
+Please Follow the following steps:</description>
     </item>
     
   </channel>
