@@ -13,11 +13,11 @@
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/setuphugo/</guid>
-      <description>&lt;p&gt;ENV :&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;OS : Ubuntu 18.04 Desktop&lt;/li&gt;
-&lt;li&gt;Hugo : v0.93&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <description>ENV :
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93  Step 1. Install Hugo Packages    Goto hugo releases and download the appropriate version for your OS and architecture.
+  Open your bowser to Dowload Packages. (Here is hugo_0.93.0_Linux-64bit.deb)
+  Verify it&amp;rsquo;s install Success.
+  $ hugo version Step 2. Build the Docs    Hugo has it&amp;rsquo;s own example site which happens to also be the documentation site you are reading right now.</description>
     </item>
     
   </channel>
