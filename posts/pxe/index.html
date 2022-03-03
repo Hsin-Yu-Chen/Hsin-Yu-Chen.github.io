@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Hsin-Yu Chen">
+    <meta name="description" content="Install PXE Server in Linux.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install PXE Server"/>
+<meta name="twitter:description" content="Install PXE Server in Linux."/>
+
+    <meta property="og:title" content="Install PXE Server" />
+<meta property="og:description" content="Install PXE Server in Linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hsin-yu-chen.github.io/posts/pxe/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-03T00:00:00+00:00" />
+
+
+
+
+    <title>
+  Install PXE Server · Hsin-Yu Chen
+</title>
+
+    
+      <link rel="canonical" href="https://hsin-yu-chen.github.io/posts/pxe/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.93.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Hsin-Yu Chen
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://hsin-yu-chen.github.io/pt-br/">🇧🇷</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://hsin-yu-chen.github.io/posts/pxe/">
+              Install PXE Server
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-03-03T00:00:00Z">
+                March 3, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/pxe/">PXE</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/uefi/">UEFI</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/legacy/">Legacy</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/linux/">Linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p> Preboot Execution Environment(PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.<br>
+ PXE network boot is performed using client-server protocols like DHCP(Dynamic Host Configuration Protocol) and TFTP(Trivial File Transfer Protocol). PXE will be enabled by default on all computers.</p>
+<h6 id="pxe-boot-components">
+  PXE Boot Components
+  <a class="heading-link" href="#pxe-boot-components">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<p><strong>(1)	PXE-capable Network Interface Controller (NIC)</strong><br>
+ Keep in mind that not all NICs are the same. Many consumer-grade network cards don’t have PXE capabilities. However, this is rapidly changing as advances make it simpler to include extra features in cheaper devices. In data center grade servers PXE-capable NICs are standard.</p>
+<p><strong>(2)	The Dynamic Host Configuration Protocol (DHCP)</strong><br>
+ DHCP allows the client to receive an IP address to gain access to the network servers. There are two types of actors in DHCP. The DHCP server and the DHCP client.
+While a DHCP server provides clients with an IP network configuration, a DHCP client runs on computers that join the network and request a configuration.</p>
+<p><strong>(3)	A Trivial File Transfer Protocol (TFTP) Server</strong><br>
+ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s easily implemented in firmware environments where resources are limited. TFTP has no directory listing, authentication, or authorization, therefore you must know the exact path of the file you intend to download.</p>
+<p>Below was PXE WorkFlow :<br>
+<img src="/posts/img/pxe/workflow.jpg" alt="PXE WorkFlow" title="PXE WorkFlow"></p>
+<p>Summarize several key points:</p>
+<ul>
+<li>The entire operation process of PXE is almost achieved using UDP packets!</li>
+<li>The network card of the PXE client must support the PXE function in order to send out the DHCP request for relevant data when booting.</li>
+<li>In addition to returning the correct LAN parameters, the DHCP Server also informs TFTP and related boot management program information.</li>
+<li>TFTP Server needs to provide:<br>
+(1) boot management program.<br>
+(2) Linux boot kernel (kernel) and related files (files such as initrd).</li>
+</ul>
+<h2 id="lets-start-">
+  Let&rsquo;s Start !
+  <a class="heading-link" href="#lets-start-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h6 id="step-1emsptftp-server-related-settings">
+  Step 1. TFTP Server Related Settings
+  <a class="heading-link" href="#step-1emsptftp-server-related-settings">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li>Install TFTP Packages.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install -y tftpd-hpa
+</span></span></code></pre></div><ol start="2">
+<li>Set up TFTP Folder. (# Use Default Settings.)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/default/tftpd-hpa
+</span></span></code></pre></div><p>You will see below Msg:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>TFTP_USERNAME=<span style="font-style:italic">&#34;tftp&#34;</span>    			    <span style="font-style:italic"># Login Name</span>
+</span></span><span style="display:flex;"><span>TFTP_DIRECTORY=<span style="font-style:italic">&#34;/var/lib/tftpboot/&#34;</span>		<span style="font-style:italic"># TFTP Share Folder</span>
+</span></span><span style="display:flex;"><span>TFTP_ADDRESS=<span style="font-style:italic">&#34;:69&#34;</span>				        <span style="font-style:italic"># TFTP Port</span>
+</span></span><span style="display:flex;"><span>TFTP_OPTIONS=<span style="font-style:italic">&#34;--secure&#34;</span>			        <span style="font-style:italic"># TFTP Config </span>
+</span></span><span style="display:flex;"><span>            <span style="font-style:italic"># secure : only Download</span>
+</span></span><span style="display:flex;"><span>            <span style="font-style:italic"># -c : Allow new files to be created</span>
+</span></span><span style="display:flex;"><span>            <span style="font-style:italic"># -s : Change  root  directory  on startup.</span>
+</span></span><span style="display:flex;"><span>            <span style="font-style:italic"># -l : Run the server in standalone (listen) mode, rather than run from inetd.</span>
+</span></span></code></pre></div><ol start="3">
+<li>Restart TFTP Service. (# If modify Settings needs restart Service.)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl restart tftpd-hpa
+</span></span></code></pre></div><ol start="4">
+<li>Auto Enable TFTP Service after system power on.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable tftpd-hpa
+</span></span></code></pre></div><ol start="5">
+<li>Check TFTP Service Status is <strong>Active(running)</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status tftpd-hpa
+</span></span></code></pre></div><h6 id="step-2emspdhcp--server-related-settings-ipv4">
+  Step 2. DHCP  Server Related Settings (IPv4)
+  <a class="heading-link" href="#step-2emspdhcp--server-related-settings-ipv4">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li>Install DHCP Packages.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install -y isc-dhcp-server
+</span></span></code></pre></div><ol start="2">
+<li>Specify Network card to be set. (Here Is “enp0s3”)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
+</span></span></code></pre></div><ol start="3">
+<li>Set Network Card with Static IP.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/network/interfaces
+</span></span></code></pre></div><p>You need add below Msg in <code>/etc/network/interfaces</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>auto enp0s3				        <span style="font-style:italic"># Auto Config Network Interface</span>
+</span></span><span style="display:flex;"><span>iface enp0s3 inet static		<span style="font-style:italic"># Set Network Interface with Static</span>
+</span></span><span style="display:flex;"><span>address 192.168.31.45
+</span></span><span style="display:flex;"><span>netmask 255.255.255.0
+</span></span><span style="display:flex;"><span>dns-nameservers 192.168.31.1
+</span></span></code></pre></div><ol start="4">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/network/interfaces
+</span></span></code></pre></div><ol start="5">
+<li>Reboot or Network Card down and up then Verify “enp0s3” is with <strong>Static IP</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
+</span></span></code></pre></div><ol start="6">
+<li>Config interfaces.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/default/isc-dhcp-server
+</span></span></code></pre></div><p>You need add below Msg in <code>/etc/default/isc-dhcp-server</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>INTERFACES=<span style="font-style:italic">&#34;enp0s3&#34;</span>
+</span></span></code></pre></div><ol start="7">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/default/isc-dhcp-server
+</span></span></code></pre></div><ol start="8">
+<li>Config dhcpd.conf.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/dhcp/dhcpd.conf
+</span></span></code></pre></div><p>You need add below Msg in <code>/etc/dhcp/dhcpd.conf</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># pxelinux Names paces</span>
+</span></span><span style="display:flex;"><span>option space pxelinux;
+</span></span><span style="display:flex;"><span>option pxelinux.magic code 208 = string;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># Configuration file</span>
+</span></span><span style="display:flex;"><span>option pxelinux.configfile code 209 = text;
+</span></span><span style="display:flex;"><span>option pxelinux.pathprefix code 210 = text;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># Front path</span>
+</span></span><span style="display:flex;"><span>option pxelinux.reboottime code 211 = unsigned integer 32;
+</span></span><span style="display:flex;"><span>option architecture-type code 93 = unsigned integer 16;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># The Client System Architecture Type Option 93 (EFI x86-64) is defined in RFC4578</span>
+</span></span><span style="display:flex;"><span>subnet 192.168.31.0 netmask 255.255.255.0 {
+</span></span><span style="display:flex;"><span>  range 192.168.31.50 192.168.31.240;
+</span></span><span style="display:flex;"><span>  option domain-name-servers 192.168.31.1;
+</span></span><span style="display:flex;"><span>  option subnet-mask 255.255.255.0;
+</span></span><span style="display:flex;"><span>  option routers 192.168.31.1;
+</span></span><span style="display:flex;"><span>  option broadcast-address 255.255.255.0;
+</span></span><span style="display:flex;"><span>  next-server 192.168.31.45;			<span style="font-style:italic"># TFTP Server Host IP</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold">if</span> option architecture-type = 00:07 {
+</span></span><span style="display:flex;"><span>     filename <span style="font-style:italic">&#34;bootx64.efi&#34;</span>; 			<span style="font-style:italic"># UEFI Mode (Boot file name)</span>
+</span></span><span style="display:flex;"><span>  } <span style="font-weight:bold">else</span>  {
+</span></span><span style="display:flex;"><span>    filename <span style="font-style:italic">&#34;pxelinux.0&#34;</span>;  			<span style="font-style:italic"># Legacy Mode (Boot file name)</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="9">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/dhcp/dhcpd.conf
+</span></span></code></pre></div><ol start="10">
+<li>Restart DHCP Service.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl restart isc-dhcp-server
+</span></span></code></pre></div><ol start="11">
+<li>Auto Enable DHCP Service after system power on.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable isc-dhcp-server
+</span></span></code></pre></div><ol start="12">
+<li>Check DHCP Service Status is <strong>Active(running)</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable isc-dhcp-server
+</span></span></code></pre></div><h6 id="step-3emspboot-mode--uefi">
+  Step 3. Boot Mode = UEFI
+  <a class="heading-link" href="#step-3emspboot-mode--uefi">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li>Install Packages.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install -y shim.signed grub-efi-amd64-signed
+</span></span></code></pre></div><ol start="2">
+<li>Create folder in TFTP Share Folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /var/lib/tftpboot/
+</span></span><span style="display:flex;"><span>$ sudo mkdir grub image
+</span></span></code></pre></div><ol start="3">
+<li>Link and Rename Files to TFTP Share Folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic"># shimx64.efi → bootx64.efi</span>
+</span></span><span style="display:flex;"><span>$ sudo ln /usr/lib/shim/shimx64.efi /var/lib/tftpboot/bootx64.efi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># grubnetx64.efi.signed → grubx64.efi</span>
+</span></span><span style="display:flex;"><span>$ sudo ln /usr/lib/grub/x86_64-efi-signed/grubnetx64.efi.signed /var/lib/tftpboot/grubx64.efi
+</span></span></code></pre></div><ol start="4">
+<li>Upload and Copy your ISO Image files to TFTP Share Folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic"># Create folder</span>
+</span></span><span style="display:flex;"><span>$ sudo mkdir /var/lib/tftpboot/image/$OS_name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># Copy iso image files</span>
+</span></span><span style="display:flex;"><span>$ cd /path/to/your/iso/images
+</span></span><span style="display:flex;"><span>$ sudo cp $Image $initrd.gz /var/lib/tftpboot/image/$OS_name/
+</span></span></code></pre></div><ol start="5">
+<li>Create <code>grub.cfg</code> File in grub folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic"># Config grub.cfg</span>
+</span></span><span style="display:flex;"><span>$ cd /var/lib/tftpboot/grub/
+</span></span><span style="display:flex;"><span>$ sudo vi grub.cfg
+</span></span></code></pre></div><p>You need add below Msg in <code>/var/lib/tftpboot/grub/grub.cfg</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>set menu_color_normal=white/black
+</span></span><span style="display:flex;"><span>set menu_color_highlight=black/light-gray
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set timeout=5
+</span></span><span style="display:flex;"><span>menuentry <span style="font-style:italic">&#34;</span>$OS_name<span style="font-style:italic">&#34;</span> {
+</span></span><span style="display:flex;"><span>	set gfxpayload=keep
+</span></span><span style="display:flex;"><span>        linux /image/$OS_name/$Image
+</span></span><span style="display:flex;"><span>        initrd /image/$OS_name/$initrd.gz root=/dev/ram0    <span style="font-style:italic"># your_setting</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="6">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat grub.cfg
+</span></span></code></pre></div><ol start="7">
+<li>Reboot and set Boot mode = UEFI, Boot Option = Network.</li>
+<li>After Reboot will Boot Success.</li>
+</ol>
+<h6 id="step-4emspboot-mode--legacy">
+  Step 4. Boot Mode = Legacy
+  <a class="heading-link" href="#step-4emspboot-mode--legacy">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li>Install Packages.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install -y pxelinux
+</span></span></code></pre></div><ol start="2">
+<li>Link Files to TFTP Share Folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic"># pxelinux.0</span>
+</span></span><span style="display:flex;"><span>$ sudo ln /usr/lib/PXELINUX/pxelinux.0 /var/lib/tftpboot/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32</span>
+</span></span><span style="display:flex;"><span>$ cd /usr/lib/syslinux/modules/bios/
+</span></span><span style="display:flex;"><span>$ sudo ln ldlinux.c32 libcom32.c32 libutil.c32 vesamenu.c32 /var/lib/tftpboot/
+</span></span></code></pre></div><ol start="3">
+<li>Create <code>pxelinux.cfg</code> folder in TFTP Folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /var/lib/tftpboot/
+</span></span><span style="display:flex;"><span>$ sudo mkdir pxelinux.cfg
+</span></span></code></pre></div><ol start="4">
+<li>Create <code>default</code> File in pxelinux.cfg folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /var/lib/tftpboot/pxelinux.cfg/
+</span></span></code></pre></div><p>You need add below Msg in <code>/var/lib/tftpboot/pxelinux.cfg/default</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>DEFAULT $OS_name
+</span></span><span style="display:flex;"><span>LABEL $OS_name
+</span></span><span style="display:flex;"><span>        KERNEL /image/$OS_name/$Image
+</span></span><span style="display:flex;"><span>        INITRD /image/$OS_name/$initrd.gz
+</span></span><span style="display:flex;"><span>        APPEND root=/dev/ram0               <span style="font-style:italic"># your_setting</span>
+</span></span></code></pre></div><ol start="5">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat default
+</span></span></code></pre></div><ol start="6">
+<li>Reboot and set Boot mode = Legacy, Boot Option = Network.</li>
+<li>After Reboot will Boot Success.</li>
+</ol>
+<ul>
+<li>Notes :<br>
+In Legacy Mode, Host can specific configure files with mac address.</li>
+</ul>
+<ol>
+<li>Set Clinet Side Side Mac Address. (E.g. Mac Address is “AA:00:BB:01:CC:02”)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
+</span></span></code></pre></div><ol start="2">
+<li>Upload and Copy your ISO Image files to TFTP Share Folder.</li>
+</ol>
+<blockquote>
+<p>Please Refer To Step 3.</p>
+</blockquote>
+<ol start="3">
+<li>Create File with <code>01-&lt;mac address&gt;</code> in <code>/var/lib/tftpboot/pxelinux.cfg/</code> folder.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /var/lib/tftpboot/pxelinux.cfg/
+</span></span><span style="display:flex;"><span>$ sudo vi 01-AA-00-BB-01-CC-02
+</span></span></code></pre></div><p>You need add below Msg in <code>/var/lib/tftpboot/pxelinux.cfg/01-AA-00-BB-01-CC-02</code> file :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>DEFAULT $OS_name
+</span></span><span style="display:flex;"><span>LABEL $OS_name
+</span></span><span style="display:flex;"><span>        KERNEL /image/$OS_name/$Image
+</span></span><span style="display:flex;"><span>        INITRD /image/$OS_name/$initrd.gz
+</span></span><span style="display:flex;"><span>        APPEND root=/dev/ram0               <span style="font-style:italic"># your_setting</span>
+</span></span></code></pre></div><ol start="4">
+<li>Verify Config Success.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat 01-AA-00-BB-01-CC-02
+</span></span></code></pre></div><ol start="5">
+<li>Reboot and set Boot mode = Legacy, Boot Option = Network.</li>
+<li>After Reboot will Boot Success.</li>
+</ol>
+<hr>
+<h6 id="refer-docs">
+  Refer Docs.
+  <a class="heading-link" href="#refer-docs">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li><a href="https://c-nergy.be/blog/?p=13334">Ubuntu 18.04 - Install UEFI Ubuntu client through PXE infrastructure</a></li>
+<li>PXE Boot infrastructure :</li>
+</ol>
+<ul>
+<li>CH Version:<br>
+<a href="http://www.unixlinux.online/unixlinux/linuxjc/linuxjc/201702/25981.html">http://www.unixlinux.online/unixlinux/linuxjc/linuxjc/201702/25981.html</a>
+<a href="https://www.itread01.com/content/1549979294.html">https://www.itread01.com/content/1549979294.html</a><br>
+<a href="http://linux.vbird.org/linux_enterprise/0120installation.php">http://linux.vbird.org/linux_enterprise/0120installation.php</a></li>
+<li>EN Version:<br>
+<a href="https://heimdalsecurity.com/blog/what-is-pxe-boot/">https://heimdalsecurity.com/blog/what-is-pxe-boot/</a>
+<a href="https://linuxhit.com/pxe-boot-what-is-pxe-how-does-it-work/#2-what-is-pxe">https://linuxhit.com/pxe-boot-what-is-pxe-how-does-it-work/#2-what-is-pxe</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2019 -
+    
+    2022
+     Hsin-Yu Chen 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8fb86376a16e684af472a329aef502dbebcfab65ce264e9750d144912947c602.js" integrity="sha256-j7hjdqFuaEr0cqMprvUC2&#43;vPq2XOJk6XUNFEkSlHxgI="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
