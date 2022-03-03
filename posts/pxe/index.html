@@ -230,7 +230,7 @@ While a DHCP server provides clients with an IP network configuration, a DHCP cl
   </a>
 </h2>
 <h6 id="step-1emsptftp-server-related-settings">
-  Step 1. TFTP Server Related Settings
+  Step 1. TFTP Server Related Settings.
   <a class="heading-link" href="#step-1emsptftp-server-related-settings">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
@@ -265,7 +265,7 @@ While a DHCP server provides clients with an IP network configuration, a DHCP cl
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status tftpd-hpa
 </span></span></code></pre></div><h6 id="step-2emspdhcp--server-related-settings-ipv4">
-  Step 2. DHCP  Server Related Settings (IPv4)
+  Step 2. DHCP  Server Related Settings (IPv4).
   <a class="heading-link" href="#step-2emspdhcp--server-related-settings-ipv4">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
@@ -358,7 +358,7 @@ While a DHCP server provides clients with an IP network configuration, a DHCP cl
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable isc-dhcp-server
 </span></span></code></pre></div><h6 id="step-3emspboot-mode--uefi">
-  Step 3. Boot Mode = UEFI
+  Step 3. Boot Mode = UEFI.
   <a class="heading-link" href="#step-3emspboot-mode--uefi">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
@@ -415,7 +415,7 @@ While a DHCP server provides clients with an IP network configuration, a DHCP cl
 <li>After Reboot will Boot Success.</li>
 </ol>
 <h6 id="step-4emspboot-mode--legacy">
-  Step 4. Boot Mode = Legacy
+  Step 4. Boot Mode = Legacy.
   <a class="heading-link" href="#step-4emspboot-mode--legacy">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
@@ -457,22 +457,24 @@ While a DHCP server provides clients with an IP network configuration, a DHCP cl
 <li>Reboot and set Boot mode = Legacy, Boot Option = Network.</li>
 <li>After Reboot will Boot Success.</li>
 </ol>
-<ul>
-<li>Notes :<br>
-In Legacy Mode, Host can specific configure files with mac address.</li>
-</ul>
+<div class="notice note">
+  <div class="notice-title">
+    <i class="fa fa-sticky-note" aria-hidden="true"></i>Note
+  </div>
+  <div class="notice-content"><p>In Legacy Mode, Host can specific configure files with mac address.<br>
+Please Follow the following steps.</p>
 <ol>
 <li>Set Clinet Side Side Mac Address. (E.g. Mac Address is “AA:00:BB:01:CC:02”)</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
 </span></span></code></pre></div><ol start="2">
-<li>Upload and Copy your ISO Image files to TFTP Share Folder.</li>
-</ol>
-<blockquote>
-<p>Please Refer To Step 3.</p>
-</blockquote>
-<ol start="3">
-<li>Create File with <code>01-&lt;mac address&gt;</code> in <code>/var/lib/tftpboot/pxelinux.cfg/</code> folder.</li>
+<li>
+<p>Upload and Copy your ISO Image files to TFTP Share Folder.<br>
+Please Refer To <!-- raw HTML omitted -->Step 3[^1]<!-- raw HTML omitted -->.</p>
+</li>
+<li>
+<p>Create File with <code>01-&lt;mac address&gt;</code> in <code>/var/lib/tftpboot/pxelinux.cfg/</code> folder.</p>
+</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /var/lib/tftpboot/pxelinux.cfg/
 </span></span><span style="display:flex;"><span>$ sudo vi 01-AA-00-BB-01-CC-02
@@ -490,7 +492,9 @@ In Legacy Mode, Host can specific configure files with mac address.</li>
 </span></span></code></pre></div><ol start="5">
 <li>Reboot and set Boot mode = Legacy, Boot Option = Network.</li>
 <li>After Reboot will Boot Success.</li>
-</ol>
+</ol></div>
+</div>
+
 <hr>
 <h6 id="refer-docs">
   Refer Docs.
