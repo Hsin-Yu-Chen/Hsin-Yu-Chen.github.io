@@ -12,7 +12,7 @@
 
     
 
-    <meta name="author" content="Hsin-Yu Chen">
+    <meta name="author" content="Kelsey Chen">
     <meta name="description" content="Set up Hugo in Linux.">
     <meta name="keywords" content="blog,developer,personal">
 
@@ -31,7 +31,7 @@
 
 
     <title>
-  Getting Started with Hugo · Hsin-Yu Chen
+  Getting Started with Hugo · Kelsey Chen
 </title>
 
     
@@ -86,7 +86,7 @@
       <nav class="navigation">
   <section class="container">
     <a class="navigation-title" href="/">
-      Hsin-Yu Chen
+      Kelsey Chen
     </a>
     
       <input type="checkbox" id="menu-toggle" />
@@ -171,11 +171,15 @@
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
     <span class="tag">
-      <a href="/tags/hugo/">hugo</a>
+      <a href="/tags/hugo/">Hugo</a>
     </span>
       <span class="separator">•</span>
     <span class="tag">
       <a href="/tags/github-pages/">Github Pages</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ubuntu/">Ubuntu</a>
     </span>
       <span class="separator">•</span>
     <span class="tag">
@@ -199,17 +203,29 @@
   </a>
 </h2>
 <blockquote>
-<p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (Notes : More Hugo introduction, please see <a href="https://gohugo.io/about/what-is-hugo/">hugo website</a>.)</p>
+<p>Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. 
+<div class="notice note">
+  <div class="notice-title">
+    <i class="fa fa-sticky-note" aria-hidden="true"></i>Note
+  </div>
+  <div class="notice-content">More Hugo introduction, please see <a href="https://gohugo.io/about/what-is-hugo/">hugo website</a>.</div>
+</div>
+</p>
 </blockquote>
-<p>Hugo has many installation methods, including Windows/macOS/Linux.<br>
-Now, we will show you how to install in <strong>Linux</strong>.<br>
+<p> Hugo has many installation methods, including Windows/macOS/Linux. Now, we will show you how to install in <strong>Linux</strong>.<br>
 Please Follow the following steps:</p>
-<h2 id="step-1emspinstall-hugo">
-  Step 1. Install Hugo.
-  <a class="heading-link" href="#step-1emspinstall-hugo">
+<h2 id="lets-start-">
+  Let&rsquo;s Start !
+  <a class="heading-link" href="#lets-start-">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
+<h4 id="step-1emspinstall-hugo">
+  Step 1. Install Hugo
+  <a class="heading-link" href="#step-1emspinstall-hugo">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
 <p>Goto <a href="https://github.com/gohugoio/hugo/releases">hugo releases</a> and download the
 appropriate version for your OS and architecture.</p>
 <ol>
@@ -223,21 +239,21 @@ appropriate version for your OS and architecture.</p>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo version
 </span></span></code></pre></div><p><img src="/posts/img/hugo/1.2_version.png" alt=""></p>
-<h2 id="step-2emspcreate-new-site">
-  Step 2. Create New Site.
+<h4 id="step-2emspcreate-new-site">
+  Step 2. Create New Site
   <a class="heading-link" href="#step-2emspcreate-new-site">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h2>
+</h4>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo new site $prject_name  
 </span></span><span style="display:flex;"><span> $ cd $prject_name
 </span></span></code></pre></div><p><img src="/posts/img/hugo/2.1_create_site.png" alt=""></p>
-<h2 id="step-3emspadd-a-theme">
-  Step 3. Add A Theme.
+<h4 id="step-3emspadd-a-theme">
+  Step 3. Add A Theme
   <a class="heading-link" href="#step-3emspadd-a-theme">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h2>
+</h4>
 <ol>
 <li>Clone the <a href="https://themes.gohugo.io/">Hugo Themes</a> to your project.</li>
 </ol>
@@ -252,12 +268,12 @@ appropriate version for your OS and architecture.</p>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>baseURL = <span style="font-style:italic">&#34;https://{your_github_account}.github.io&#34;</span>
 </span></span><span style="display:flex;"><span>theme = <span style="font-style:italic">&#34;</span>$themes_name<span style="font-style:italic">&#34;</span>
-</span></span></code></pre></div><h2 id="step-4emspstart-the-hugo-server">
-  Step 4. Start the Hugo Server.
+</span></span></code></pre></div><h4 id="step-4emspstart-the-hugo-server">
+  Step 4. Start the Hugo Server
   <a class="heading-link" href="#step-4emspstart-the-hugo-server">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h2>
+</h4>
 <ol>
 <li>Run Hugo in server mode.</li>
 </ol>
@@ -269,12 +285,12 @@ appropriate version for your OS and architecture.</p>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> $ hugo
 </span></span></code></pre></div><p><img src="/posts/img/hugo/2.4_hugo.png" alt=""></p>
-<h2 id="step-5emsppush-into-your-github-pages">
+<h4 id="step-5emsppush-into-your-github-pages">
   Step 5. Push into your Github Pages
   <a class="heading-link" href="#step-5emsppush-into-your-github-pages">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h2>
+</h4>
 <ol>
 <li>
 <p>Create New Repo.<br>
@@ -299,12 +315,12 @@ appropriate version for your OS and architecture.</p>
 </span></span></code></pre></div><ol start="4">
 <li>Open bowser to : https://{your_github_account}.github.io</li>
 </ol>
-<h2 id="step-6emsphave-fun">
-  Step 6. Have fun.
+<h4 id="step-6emsphave-fun">
+  Step 6. Have Fun
   <a class="heading-link" href="#step-6emsphave-fun">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h2>
+</h4>
 <p>The best way to learn something is to play with it.</p>
 
       </div>
@@ -337,10 +353,8 @@ appropriate version for your OS and architecture.</p>
   <section class="container">
     ©
     
-      2019 -
-    
     2022
-     Hsin-Yu Chen 
+     Kelsey Chen 
     ·
     
     Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>I2C on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/tags/i2c/</link>
+    <description>Recent content in I2C on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/i2c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BMC Architecture</title>
+      <link>https://hsin-yu-chen.github.io/posts/module/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/module/</guid>
+      <description>Baseboard Management Controller (BMC)     Service processor which can monitoring the physical state of servers, computers or other hardware devices with help of sensors.
+The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. IPMI includes the definition of interfaces for extending platform management between board within the main chassis, and between multiple chassis.</description>
+    </item>
+    
+  </channel>
+</rss>

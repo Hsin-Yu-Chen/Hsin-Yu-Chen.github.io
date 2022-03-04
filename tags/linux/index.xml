@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on Hsin-Yu Chen</title>
+    <title>Linux on Kelsey Chen</title>
     <link>https://hsin-yu-chen.github.io/tags/linux/</link>
-    <description>Recent content in Linux on Hsin-Yu Chen</description>
+    <description>Recent content in Linux on Kelsey Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GRUB2 and Linux with Serial Console</title>
+      <link>https://hsin-yu-chen.github.io/posts/sol/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/sol/</guid>
+      <description>ENV :
+ OS : Ubuntu 18.04, CentOS 7  Introduction    If you have many computers or computers with no display/keyboard, it could be very useful to control the computers through serial communications. To connect one computer with another via a serial line, you need to prepare a null-modem (cross) serial cable, and you may need to have multiport serial boards, if your computer doesn’t have extra serial ports.</description>
+    </item>
+    
     <item>
       <title>Install PXE Server</title>
       <link>https://hsin-yu-chen.github.io/posts/pxe/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/pxe/</guid>
-      <description>Introduction     Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.
+      <description>Introduction    Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.
 PXE network boot is performed using client-server protocols like DHCP (Dynamic Host Configuration Protocol) and TFTP (Trivial File Transfer Protocol). PXE will be enabled by default on all computers.
 PXE Boot Components    1.</description>
     </item>
@@ -25,9 +35,7 @@ PXE Boot Components    1.</description>
       
       <guid>https://hsin-yu-chen.github.io/posts/setuphugo/</guid>
       <description>ENV :
- OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?     Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (Notes : More Hugo introduction, please see hugo website.)
- Hugo has many installation methods, including Windows/macOS/Linux.
-Now, we will show you how to install in Linux.
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?     Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. Note  More Hugo introduction, please see hugo website.    Hugo has many installation methods, including Windows/macOS/Linux. Now, we will show you how to install in Linux.
 Please Follow the following steps:</description>
     </item>
     

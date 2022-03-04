@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://hsin-yu-chen.github.io/tags/bmc/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/module/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hsin-yu-chen.github.io/categories/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -15,8 +21,23 @@
                 href="https://hsin-yu-chen.github.io/categories/"
                 />
   </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/centos/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/gpio/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/sol/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/i2c/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/ipmi/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hsin-yu-chen.github.io/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -28,29 +49,26 @@
                 href="https://hsin-yu-chen.github.io/"
                 />
   </url><url>
-    <loc>https://hsin-yu-chen.github.io/series/install-guide/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/posts/pxe/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/tags/legacy/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/linux/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsin-yu-chen.github.io/categories/linux/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/series/linux-guide/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/peci/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/pmbus/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/tags/pxe/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsin-yu-chen.github.io/series/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -62,8 +80,14 @@
                 href="https://hsin-yu-chen.github.io/series/"
                 />
   </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/smbus/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/sol/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/</loc>
-    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
@@ -74,6 +98,18 @@
                 hreflang="en"
                 href="https://hsin-yu-chen.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/ubuntu/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/pxe/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/legacy/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/pxe/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/uefi/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
@@ -87,7 +123,7 @@
     <loc>https://hsin-yu-chen.github.io/tags/hugo/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hsin-yu-chen.github.io/series/themes-guide/</loc>
+    <loc>https://hsin-yu-chen.github.io/series/hugo/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hsin-yu-chen.github.io/about/</loc>
