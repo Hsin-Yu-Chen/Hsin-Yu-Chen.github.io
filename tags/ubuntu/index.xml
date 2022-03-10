@@ -6,9 +6,31 @@
     <description>Recent content in Ubuntu on Kelsey Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GRUB2 and Linux with Serial Console</title>
+      <title>Install Packages Common Command</title>
+      <link>https://hsin-yu-chen.github.io/posts/cmd/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/cmd/</guid>
+      <description>Here are some commands that I use frequently.
+Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
+    </item>
+    
+    <item>
+      <title>Install Syslog Server</title>
+      <link>https://hsin-yu-chen.github.io/posts/syslog/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/syslog/</guid>
+      <description>ENV :
+ OS : Ubuntu 18.04 Desktop  Introduction    The System Logging Protocol (Syslog) is a method that enables network devices to communicate with logging servers using standard message formats.
+Points :
+ Works on Unix, Linux, and other *nix, and of course on MacOS. Messages are sent via the User Datagram Protocol (UDP), which is port 514. Log messages include :  timestamp severity rating device ID (including IP address) event specific information    Let&amp;rsquo;s Start !</description>
+    </item>
+    
+    <item>
+      <title>Grub2 and Linux with Serial Console</title>
       <link>https://hsin-yu-chen.github.io/posts/sol/</link>
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -23,9 +45,9 @@
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/pxe/</guid>
-      <description>Introduction    Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.
-PXE network boot is performed using client-server protocols like DHCP (Dynamic Host Configuration Protocol) and TFTP (Trivial File Transfer Protocol). PXE will be enabled by default on all computers.
-PXE Boot Components    1.</description>
+      <description>ENV :
+ OS : Ubuntu 18.04 Desktop  Introduction    Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.
+PXE network boot is performed using client-server protocols like DHCP (Dynamic Host Configuration Protocol) and TFTP (Trivial File Transfer Protocol). PXE will be enabled by default on all computers.</description>
     </item>
     
     <item>

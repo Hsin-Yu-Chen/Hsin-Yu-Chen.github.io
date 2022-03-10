@@ -6,7 +6,18 @@
     <description>Recent content in Hugo on Kelsey Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Html tags in .md files not working</title>
+      <link>https://hsin-yu-chen.github.io/posts/htmltag/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/htmltag/</guid>
+      <description>Introduction    Since Hugo version 0.60, the default Markdown renderer has been changed to goldmark. In goldmark, the default is not to render raw HTML tags. So, You may has some promble like this :
+If you need use html tags, please follow me:
+Let&amp;rsquo;s Start !    Step 1. Modify config.toml    You don&amp;rsquo;t need install any packages. Just add below Msg in config.</description>
+    </item>
+    
     <item>
       <title>Getting Started with Hugo</title>
       <link>https://hsin-yu-chen.github.io/posts/setuphugo/</link>
