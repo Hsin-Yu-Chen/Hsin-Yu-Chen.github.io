@@ -14,7 +14,7 @@
       
       <guid>https://hsin-yu-chen.github.io/posts/cmd/</guid>
       <description>Here are some commands that I use frequently.
-Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
+  Table of Contents   Ubuntu CentOS    Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
     </item>
     
     <item>
@@ -23,10 +23,9 @@ Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipm
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/syslog/</guid>
-      <description>ENV :
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Step 1. Install rsyslog Package Step 2. Edit file Step 3. Restart and verify service status   Refer Docs    ENV :
  OS : Ubuntu 18.04 Desktop  Introduction    The System Logging Protocol (Syslog) is a method that enables network devices to communicate with logging servers using standard message formats.
-Points :
- Works on Unix, Linux, and other *nix, and of course on MacOS. Messages are sent via the User Datagram Protocol (UDP), which is port 514. Log messages include :  timestamp severity rating device ID (including IP address) event specific information    Let&amp;rsquo;s Start !</description>
+Points :</description>
     </item>
     
     <item>
@@ -35,7 +34,7 @@ Points :
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/sol/</guid>
-      <description>ENV :
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Ubuntu 18.04 CentOS 7   Refer Docs    ENV :
  OS : Ubuntu 18.04, CentOS 7  Introduction    If you have many computers or computers with no display/keyboard, it could be very useful to control the computers through serial communications. To connect one computer with another via a serial line, you need to prepare a null-modem (cross) serial cable, and you may need to have multiport serial boards, if your computer doesn’t have extra serial ports.</description>
     </item>
     

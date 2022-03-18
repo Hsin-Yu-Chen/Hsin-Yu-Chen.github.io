@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-tw">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="陳欣妤">
+    <meta name="description" content="Install Syslog Server">
+    <meta name="keywords" content="blog,desenvolvedor,pessoal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安裝 rsyslog Server"/>
+<meta name="twitter:description" content="Install Syslog Server"/>
+
+    <meta property="og:title" content="安裝 rsyslog Server" />
+<meta property="og:description" content="Install Syslog Server" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Kelsey Chen" />
+<meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/cmd/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/sol/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/pxe/" />
+
+
+
+    <title>
+  安裝 rsyslog Server · Kelsey Chen
+</title>
+
+    
+      <link rel="canonical" href="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.93.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/zh-tw">
+      Kelsey Chen
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/about/">關於</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/posts/">文章</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/projects/">專案</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/contact/">聯絡我</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://hsin-yu-chen.github.io/posts/syslog/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/">
+              安裝 rsyslog Server
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-03-10T00:00:00Z">
+                March 10, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              閱讀時間 1 分鐘
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/zh-tw/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/zh-tw/tags/ubuntu/">Ubuntu</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/zh-tw/tags/centos/">CentOS</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/zh-tw/tags/linux/">Linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <aside>
+    <header>
+    <h2>Table of Contents</h2>
+    </header>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#介紹">介紹</a></li>
+    <li><a href="#我們開始吧-">我們開始吧 ！</a>
+      <ul>
+        <li><a href="#步驟-1emsp安裝-rsyslog-相關套件">步驟 1. 安裝 rsyslog 相關套件</a></li>
+        <li><a href="#步驟-2emsp編輯檔案">步驟 2. 編輯檔案</a></li>
+        <li><a href="#步驟-3emsp重新啟動並驗證-service-狀態">步驟 3. 重新啟動並驗證 service 狀態</a></li>
+      </ul>
+    </li>
+    <li><a href="#參考資料">參考資料</a></li>
+  </ul>
+</nav>
+</aside>
+<p>環境 :</p>
+<ol>
+<li>OS  : Ubuntu 18.04 Desktop</li>
+</ol>
+<h2 id="介紹">
+  介紹
+  <a class="heading-link" href="#%e4%bb%8b%e7%b4%b9">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>系統日誌記錄協議 (Syslog) 是一種使網絡設備能夠使用標準消息格式與日誌記錄服務器通信的方法。<br>
+重點：</p>
+<ul>
+<li>適用於 Unix、Linux 和其他 *nix，當然還有 MacOS。</li>
+<li>消息通過用戶數據報協議 (UDP) 發送，即端口 514。</li>
+<li>日誌消息包括：
+<ul>
+<li>時間戳</li>
+<li>嚴重程度等級</li>
+<li>設備 ID（包括 IP 地址）</li>
+<li>活動特定信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="我們開始吧-">
+  我們開始吧 ！
+  <a class="heading-link" href="#%e6%88%91%e5%80%91%e9%96%8b%e5%a7%8b%e5%90%a7-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="步驟-1emsp安裝-rsyslog-相關套件">
+  步驟 1. 安裝 rsyslog 相關套件
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-1emsp%e5%ae%89%e8%a3%9d-rsyslog-%e7%9b%b8%e9%97%9c%e5%a5%97%e4%bb%b6">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install rsyslog
+</span></span></code></pre></div><h3 id="步驟-2emsp編輯檔案">
+  步驟 2. 編輯檔案
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-2emsp%e7%b7%a8%e8%bc%af%e6%aa%94%e6%a1%88">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ol>
+<li>編輯 rsyslog.conf 檔案</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/rsyslog.conf
+</span></span></code></pre></div><ol start="2">
+<li>Enable 以下的訊息在 <code>/etc/rsyslog.conf</code> 檔案 :</li>
+</ol>
+<p><img src="/posts/img/syslog/2_udp.png" alt=""></p>
+<h3 id="步驟-3emsp重新啟動並驗證-service-狀態">
+  步驟 3. 重新啟動並驗證 service 狀態
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-3emsp%e9%87%8d%e6%96%b0%e5%95%9f%e5%8b%95%e4%b8%a6%e9%a9%97%e8%ad%89-service-%e7%8b%80%e6%85%8b">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ol>
+<li>重新啟動 rsyslog Service</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo service rsyslog restart
+</span></span></code></pre></div><ol start="2">
+<li>確認 rsyslog Service 狀態是 <strong>Active(running)</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status rsyslog.service
+</span></span></code></pre></div><hr>
+<h2 id="參考資料">
+  參考資料
+  <a class="heading-link" href="#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ol>
+<li><a href="https://www.whatsupgold.com/tw/blog/what-is-a-syslog-server-and-how-does-it-work">Syslog Server 介紹</a></li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="參見-linux">
+        參見 Linux
+        <a class="heading-link" href="#%e5%8f%83%e8%a6%8b-linux">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="/zh-tw/posts/setdhcp/">安裝 DHCP Server (IPv4&amp;IPv6)</a>
+            </li>
+          
+        
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/raspberry/">安裝樹莓</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/cmd/">常用的安裝套件指令</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/sol/">在 Linux 的 grub(grub2) 檔案中設置 Serial Console</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/pxe/">安裝 PXE Server</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     陳欣妤 
+    ·
+    
+    技術支援 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8fb86376a16e684af472a329aef502dbebcfab65ce264e9750d144912947c602.js" integrity="sha256-j7hjdqFuaEr0cqMprvUC2&#43;vPq2XOJk6XUNFEkSlHxgI="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

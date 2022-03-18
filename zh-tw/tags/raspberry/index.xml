@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/raspberry/</link>
+    <description>Recent content in Raspberry on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安裝樹莓</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/</guid>
+      <description>Table of Contents   事前準備 我們開始吧 ！  步驟 1. 使用 Raspberry Pi Imager 安裝 Raspberry Pi OS 步驟 2. Choose OS &amp;amp; SD card then write to SD card 步驟 3. 安裝套件包   參考資料    事前準備     樹莓開發板 作業系統 image SD Card HTMI to VGA、Power Code、Mouse、Keyboard&amp;hellip; etc.  我們開始吧 ！    步驟 1. 使用 Raspberry Pi Imager 安裝 Raspberry Pi OS    根據電腦的作業系統下載 和安裝 Raspberry Pi Imager 並安裝到 SD card。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-tw">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="陳欣妤">
+    <meta name="description" content="Install DHCP Server in Linux.">
+    <meta name="keywords" content="blog,desenvolvedor,pessoal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安裝 DHCP Server (IPv4&amp;IPv6)"/>
+<meta name="twitter:description" content="Install DHCP Server in Linux."/>
+
+    <meta property="og:title" content="安裝 DHCP Server (IPv4&amp;IPv6)" />
+<meta property="og:description" content="Install DHCP Server in Linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-14T00:00:00+00:00" /><meta property="og:site_name" content="Kelsey Chen" />
+<meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/cmd/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/sol/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/pxe/" />
+
+
+
+    <title>
+  安裝 DHCP Server (IPv4&amp;IPv6) · Kelsey Chen
+</title>
+
+    
+      <link rel="canonical" href="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.93.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/zh-tw">
+      Kelsey Chen
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/about/">關於</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/posts/">文章</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/projects/">專案</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/contact/">聯絡我</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://hsin-yu-chen.github.io/posts/setdhcp/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/">
+              安裝 DHCP Server (IPv4&amp;IPv6)
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-03-14T00:00:00Z">
+                March 14, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              閱讀時間 2 分鐘
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/zh-tw/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/zh-tw/tags/dhcp/">DHCP</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/zh-tw/tags/ubuntu/">Ubuntu</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/zh-tw/tags/linux/">Linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <aside>
+    <header>
+    <h2>Table of Contents</h2>
+    </header>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#介紹">介紹</a></li>
+    <li><a href="#我們開始吧-">我們開始吧 ！</a>
+      <ul>
+        <li><a href="#dhcp-ipv4">DHCP IPv4</a></li>
+        <li><a href="#dhcp-ipv6">DHCP IPv6</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+<p>環境 :</p>
+<ol>
+<li>OS  : Ubuntu 18.04 Desktop</li>
+</ol>
+<h2 id="介紹">
+  介紹
+  <a class="heading-link" href="#%e4%bb%8b%e7%b4%b9">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>動態主機配置協議 (DHCP) 是一種用於 Internet 協議 (IP) 網絡的網絡管理協議，用於自動為使用客戶端-服務器架構連接到網絡的設備分配 IP 地址和其他通信參數。</p>
+<p>它負責動態分配IP地址，當需要連接網絡中的任何電腦，它會向 DHCP 服務器請求 IP 地址。 DHCP 服務器將從數據庫中找到尚未使用的 IP 地址並提供給電腦使用。 使用後，電腦將IP地址返回給DHCP服務器，供其他在線電腦使用。</p>
+<blockquote>
+<div class="notice note">
+  <div class="notice-title">
+    <i class="fa fa-sticky-note" aria-hidden="true"></i>Note
+  </div>
+  <div class="notice-content">更多的 DHCP 介紹，請參考 <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP 維基百科</a>.</div>
+</div>
+
+</blockquote>
+<h2 id="我們開始吧-">
+  我們開始吧 ！
+  <a class="heading-link" href="#%e6%88%91%e5%80%91%e9%96%8b%e5%a7%8b%e5%90%a7-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="dhcp-ipv4">
+  DHCP IPv4
+  <a class="heading-link" href="#dhcp-ipv4">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<blockquote>
+<p>可參考<a href="/zh-tw/posts/pxe">安裝 PXE Server</a>, 搜尋 : Step 2.DHCP  Server Related Settings (IPv4).</p>
+</blockquote>
+<h3 id="dhcp-ipv6">
+  DHCP IPv6
+  <a class="heading-link" href="#dhcp-ipv6">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<h6 id="步驟-1emsp安裝套件包">
+  步驟 1. 安裝套件包
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-1emsp%e5%ae%89%e8%a3%9d%e5%a5%97%e4%bb%b6%e5%8c%85">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt-get install radvd
+</span></span></code></pre></div><h6 id="步驟-2emspdhcp--server-ipv6-相關設置">
+  步驟 2. DHCP  Server (IPv6) 相關設置
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-2emspdhcp--server-ipv6-%e7%9b%b8%e9%97%9c%e8%a8%ad%e7%bd%ae">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h6>
+<ol>
+<li>指定要設置的網卡。 (此範例的網卡名稱是 “enp0s3”)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
+</span></span></code></pre></div><ol start="2">
+<li>將網卡設置為靜態 IP</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/network/interfaces
+</span></span></code></pre></div><p>添加以下訊息至 <code>/etc/network/interfaces</code> 檔案 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic"># IPv6 setting</span>
+</span></span><span style="display:flex;"><span>iface enp0s3 inet6 static
+</span></span><span style="display:flex;"><span>pre-up modprobe ipv6
+</span></span><span style="display:flex;"><span>address 2001:db8:ac10:fe01::2
+</span></span><span style="display:flex;"><span>netmask 64
+</span></span></code></pre></div><ol start="3">
+<li>驗證設置成功</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/network/interfaces
+</span></span></code></pre></div><ol start="4">
+<li>重新啟動 OS 或 重新啟動網卡 並驗證網卡 “enp0s3” 是 <strong>靜態 IP</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
+</span></span></code></pre></div><ol start="5">
+<li>設置 IP 範圍</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/dhcp/dhcpd6.conf
+</span></span></code></pre></div><p>添加以下訊息至 <code>/etc/dhcp/dhcpd6.conf</code> 檔案 :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="font-style:italic">### Add Below Msg ###</span>
+</span></span><span style="display:flex;"><span>subnet6 2001:db8:ac10:fe01::/64
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    range6 2001:db8:ac10:fe01::10 2001:db8:ac10:fe01::20 <span style="font-style:italic">#range for clients </span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="6">
+<li>驗證設置成功</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/dhcp/dhcpd6.conf
+</span></span></code></pre></div><ol start="7">
+<li>重新啟動 DHCP IPv6 Service.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo service isc-dhcp-server6 restart
+</span></span></code></pre></div><ol start="8">
+<li>確認 DHCP IPv6 Service 狀態是 <strong>Active(running)</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo service isc-dhcp-server6 status
+</span></span></code></pre></div><ol start="9">
+<li>設置 IPv6 forwarding</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/sysctl.conf
+</span></span></code></pre></div><p>至 <code>/etc/sysctl.conf</code> 取消註解: net.ipv6.conf.all.forwarding=1</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net.ipv6.conf.all.forwarding=1
+</span></span></code></pre></div><ol start="10">
+<li>設置 radvd</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo vi /etc/radvd.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>interface enp0s3 {
+</span></span><span style="display:flex;"><span>    AdvManagedFlag on;
+</span></span><span style="display:flex;"><span>    AdvSendAdvert on;
+</span></span><span style="display:flex;"><span>    AdvOtherConfigFlag on;
+</span></span><span style="display:flex;"><span>    MinRtrAdvInterval 3;
+</span></span><span style="display:flex;"><span>    MaxRtrAdvInterval 60;
+</span></span><span style="display:flex;"><span>    prefix 2001:db8:ac10:fe01::/64 {
+</span></span><span style="display:flex;"><span>        AdvOnLink on;
+</span></span><span style="display:flex;"><span>        AdvAutonomous on;
+</span></span><span style="display:flex;"><span>        AdvRouterAddr off;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ol start="11">
+<li>驗證設置成功</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /etc/radvd.conf
+</span></span></code></pre></div><ol start="12">
+<li>重新啟動 radvd.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl restart radvd
+</span></span></code></pre></div><ol start="13">
+<li>確認 Service 狀態是 <strong>Active(running)</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status radvd
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="參見-linux">
+        參見 Linux
+        <a class="heading-link" href="#%e5%8f%83%e8%a6%8b-linux">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/syslog/">安裝 rsyslog Server</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/raspberry/">安裝樹莓</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/cmd/">常用的安裝套件指令</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/sol/">在 Linux 的 grub(grub2) 檔案中設置 Serial Console</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/pxe/">安裝 PXE Server</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     陳欣妤 
+    ·
+    
+    技術支援 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8fb86376a16e684af472a329aef502dbebcfab65ce264e9750d144912947c602.js" integrity="sha256-j7hjdqFuaEr0cqMprvUC2&#43;vPq2XOJk6XUNFEkSlHxgI="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

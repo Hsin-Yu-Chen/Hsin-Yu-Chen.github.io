@@ -13,9 +13,8 @@
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/setuphugo/</guid>
-      <description>ENV :
- OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?     Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. Note  More Hugo introduction, please see hugo website.    Hugo has many installation methods, including Windows/macOS/Linux. Now, we will show you how to install in Linux.
-Please Follow the following steps:</description>
+      <description>Table of Contents   What is Hugo ? Let&amp;rsquo;s Start !  Step 1. Install Hugo Step 2. Create New Site Step 3. Add A Theme Step 4. Start the Hugo Server Step 5. Push into your Github Pages Step 6. Have Fun      ENV :
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?    Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.</description>
     </item>
     
   </channel>

@@ -6,7 +6,17 @@
     <description>Recent content in Linux on Kelsey Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install DHCP Server (IPv4&amp;IPv6)</title>
+      <link>https://hsin-yu-chen.github.io/posts/setdhcp/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/posts/setdhcp/</guid>
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  DHCP IPv4 DHCP IPv6      ENV :
+ OS : Ubuntu 18.04 Desktop  Introduction    The Dynamic Host Configuration Protocol (DHCP) is a network management protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture.</description>
+    </item>
+    
     <item>
       <title>Install Packages Common Command</title>
       <link>https://hsin-yu-chen.github.io/posts/cmd/</link>
@@ -14,7 +24,7 @@
       
       <guid>https://hsin-yu-chen.github.io/posts/cmd/</guid>
       <description>Here are some commands that I use frequently.
-Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
+  Table of Contents   Ubuntu CentOS    Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
     </item>
     
     <item>
@@ -23,8 +33,7 @@ Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipm
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/raspberry/</guid>
-      <description>Advance Preparation     Raspberry Device OS image SD Card HTMI to VGA、Power Code、Mouse、Keyboard&amp;hellip; etc.  Let&amp;rsquo;s Start !    Step 1. Install Raspberry Pi OS using Raspberry Pi Imager    Download and install Raspberry Pi Imager to a computer with an SD card reader.
-Step 2. Choose OS &amp;amp; SD card then write to SD card    Step 3. Install Packages    After OS install success, you may install whatever you need packages.</description>
+      <description>Table of Contents   Advance Preparation Let&amp;rsquo;s Start !  Step 1. Install Raspberry Pi OS using Raspberry Pi Imager Step 2. Choose OS &amp;amp; SD card then write to SD card Step 3. Install Packages   Refer Docs    Advance Preparation     Raspberry Device OS image SD Card HTMI to VGA、Power Code、Mouse、Keyboard&amp;hellip; etc.  Let&amp;rsquo;s Start !    Step 1.</description>
     </item>
     
     <item>
@@ -33,10 +42,9 @@ Step 2. Choose OS &amp;amp; SD card then write to SD card    Step 3. Install
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/syslog/</guid>
-      <description>ENV :
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Step 1. Install rsyslog Package Step 2. Edit file Step 3. Restart and verify service status   Refer Docs    ENV :
  OS : Ubuntu 18.04 Desktop  Introduction    The System Logging Protocol (Syslog) is a method that enables network devices to communicate with logging servers using standard message formats.
-Points :
- Works on Unix, Linux, and other *nix, and of course on MacOS. Messages are sent via the User Datagram Protocol (UDP), which is port 514. Log messages include :  timestamp severity rating device ID (including IP address) event specific information    Let&amp;rsquo;s Start !</description>
+Points :</description>
     </item>
     
     <item>
@@ -45,9 +53,8 @@ Points :
       <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/htmltag/</guid>
-      <description>Introduction    Since Hugo version 0.60, the default Markdown renderer has been changed to goldmark. In goldmark, the default is not to render raw HTML tags. So, You may has some promble like this :
-If you need use html tags, please follow me:
-Let&amp;rsquo;s Start !    Step 1. Modify config.toml    You don&amp;rsquo;t need install any packages. Just add below Msg in config.</description>
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Step 1. Modify config.toml Step 2. Verify Config Success   Refer Docs    Introduction    Since Hugo version 0.60, the default Markdown renderer has been changed to goldmark. In goldmark, the default is not to render raw HTML tags. So, You may has some promble like this :
+If you need use html tags, please follow me:</description>
     </item>
     
     <item>
@@ -56,8 +63,8 @@ Let&amp;rsquo;s Start !    Step 1. Modify config.toml    You don&amp;rsquo;t n
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/module/</guid>
-      <description>Baseboard Management Controller (BMC)     Service processor which can monitoring the physical state of servers, computers or other hardware devices with help of sensors.
-The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. IPMI includes the definition of interfaces for extending platform management between board within the main chassis, and between multiple chassis.</description>
+      <description>Table of Contents   Baseboard Management Controller (BMC) Inter-Integrated Circuit (I²C) System Management Bus (SMBus) Power Management Bus (PMBus) Platform Environment Control Interface (PECI) General Purpose Input Output (GPIO) Project Stage    Baseboard Management Controller (BMC)     Service processor which can monitoring the physical state of servers, computers or other hardware devices with help of sensors.
+The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem.</description>
     </item>
     
     <item>
@@ -66,7 +73,7 @@ The IPMI specifications define standardized, abstracted interfaces to the platfo
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/sol/</guid>
-      <description>ENV :
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Ubuntu 18.04 CentOS 7   Refer Docs    ENV :
  OS : Ubuntu 18.04, CentOS 7  Introduction    If you have many computers or computers with no display/keyboard, it could be very useful to control the computers through serial communications. To connect one computer with another via a serial line, you need to prepare a null-modem (cross) serial cable, and you may need to have multiport serial boards, if your computer doesn’t have extra serial ports.</description>
     </item>
     
@@ -76,9 +83,8 @@ The IPMI specifications define standardized, abstracted interfaces to the platfo
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/pxe/</guid>
-      <description>ENV :
- OS : Ubuntu 18.04 Desktop  Introduction    Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.
-PXE network boot is performed using client-server protocols like DHCP (Dynamic Host Configuration Protocol) and TFTP (Trivial File Transfer Protocol). PXE will be enabled by default on all computers.</description>
+      <description>Table of Contents   Introduction  PXE Boot Components   Let&amp;rsquo;s Start !  Step 1. TFTP Server Related Settings. Step 2. DHCP Server Related Settings (IPv4). Step 3. Boot Mode = UEFI. Step 4. Boot Mode = Legacy.   Refer Docs    ENV :
+ OS : Ubuntu 18.04 Desktop  Introduction    Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.</description>
     </item>
     
     <item>
@@ -87,9 +93,8 @@ PXE network boot is performed using client-server protocols like DHCP (Dynamic H
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/setuphugo/</guid>
-      <description>ENV :
- OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?     Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. Note  More Hugo introduction, please see hugo website.    Hugo has many installation methods, including Windows/macOS/Linux. Now, we will show you how to install in Linux.
-Please Follow the following steps:</description>
+      <description>Table of Contents   What is Hugo ? Let&amp;rsquo;s Start !  Step 1. Install Hugo Step 2. Create New Site Step 3. Add A Theme Step 4. Start the Hugo Server Step 5. Push into your Github Pages Step 6. Have Fun      ENV :
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  What is Hugo ?    Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.</description>
     </item>
     
   </channel>

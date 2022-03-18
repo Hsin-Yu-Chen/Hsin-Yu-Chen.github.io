@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://hsin-yu-chen.github.io/posts/pxe/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-03T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-03-03T00:00:00+00:00" />
-<meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/cmd/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/raspberry/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/syslog/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/sol/" />
+<meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/setdhcp/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/cmd/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/raspberry/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/syslog/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/posts/sol/" />
 
 
 
@@ -101,7 +101,7 @@
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link" href="/posts/">Blog</a>
+              <a class="navigation-link" href="/posts">Blog</a>
             </li>
           
             <li class="navigation-item">
@@ -118,8 +118,6 @@
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -127,7 +125,7 @@
                 
               
               <li class="navigation-item">
-                <a href="https://hsin-yu-chen.github.io/pt-br/">🇧🇷</a>
+                <a href="https://hsin-yu-chen.github.io/zh-tw/posts/pxe/">中文</a>
               </li>
             
           
@@ -195,7 +193,30 @@
 
       <div>
         
-        <p>ENV :</p>
+        <aside>
+    <header>
+    <h2>Table of Contents</h2>
+    </header>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#pxe-boot-components">PXE Boot Components</a></li>
+      </ul>
+    </li>
+    <li><a href="#lets-start-">Let&rsquo;s Start !</a>
+      <ul>
+        <li><a href="#step-1emsptftp-server-related-settings">Step 1. TFTP Server Related Settings.</a></li>
+        <li><a href="#step-2emspdhcp--server-related-settings-ipv4">Step 2. DHCP  Server Related Settings (IPv4).</a></li>
+        <li><a href="#step-3emspboot-mode--uefi">Step 3. Boot Mode = UEFI.</a></li>
+        <li><a href="#step-4emspboot-mode--legacy">Step 4. Boot Mode = Legacy.</a></li>
+      </ul>
+    </li>
+    <li><a href="#refer-docs">Refer Docs</a></li>
+  </ul>
+</nav>
+</aside>
+<p>ENV :</p>
 <ol>
 <li>OS  : Ubuntu 18.04 Desktop</li>
 </ol>
@@ -207,12 +228,12 @@
 </h2>
 <p>Preboot Execution Environment (PXE) is a client-server interface that allows computers in a network to be booted from the server before deploying the obtained PC image in local and remote offices, for PXE enabled clients.<br>
 PXE network boot is performed using client-server protocols like DHCP (Dynamic Host Configuration Protocol) and TFTP (Trivial File Transfer Protocol). PXE will be enabled by default on all computers.</p>
-<h5 id="pxe-boot-components">
+<h3 id="pxe-boot-components">
   PXE Boot Components
   <a class="heading-link" href="#pxe-boot-components">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h5>
+</h3>
 <p><strong>1. PXE-capable Network Interface Controller (NIC)</strong><br>
 Keep in mind that not all NICs are the same. Many consumer-grade network cards don’t have PXE capabilities. However, this is rapidly changing as advances make it simpler to include extra features in cheaper devices. In data center grade servers PXE-capable NICs are standard.</p>
 <p><strong>2. The Dynamic Host Configuration Protocol (DHCP)</strong><br>
@@ -220,8 +241,8 @@ DHCP allows the client to receive an IP address to gain access to the network se
 While a DHCP server provides clients with an IP network configuration, a DHCP client runs on computers that join the network and request a configuration.</p>
 <p><strong>3. A Trivial File Transfer Protocol (TFTP) Server</strong><br>
 TFTP is a simple UDP-based protocol for receiving or sending a file and it’s easily implemented in firmware environments where resources are limited. TFTP has no directory listing, authentication, or authorization, therefore you must know the exact path of the file you intend to download.</p>
-<p>Here is PXE WorkFlow :<br>
-<img src="/posts/img/pxe/workflow.jpg" alt="PXE WorkFlow" title="PXE WorkFlow"></p>
+<img src="/posts/img/pxe/workflow.jpg" style="display:block; margin:auto;" /> 
+<center>PXE with server/client WorkFlow</center>
 <p>Summarize several key points:</p>
 <ul>
 <li>The entire operation process of PXE is almost achieved using UDP packets!</li>
@@ -237,12 +258,12 @@ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s e
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
-<h6 id="step-1emsptftp-server-related-settings">
+<h3 id="step-1emsptftp-server-related-settings">
   Step 1. TFTP Server Related Settings.
   <a class="heading-link" href="#step-1emsptftp-server-related-settings">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <ol>
 <li>Install TFTP Packages.</li>
 </ol>
@@ -272,12 +293,12 @@ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s e
 <li>Check TFTP Service Status is <strong>Active(running)</strong>.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl status tftpd-hpa
-</span></span></code></pre></div><h6 id="step-2emspdhcp--server-related-settings-ipv4">
+</span></span></code></pre></div><h3 id="step-2emspdhcp--server-related-settings-ipv4">
   Step 2. DHCP  Server Related Settings (IPv4).
   <a class="heading-link" href="#step-2emspdhcp--server-related-settings-ipv4">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <ol>
 <li>Install DHCP Packages.</li>
 </ol>
@@ -365,12 +386,12 @@ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s e
 <li>Check DHCP Service Status is <strong>Active(running)</strong>.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo systemctl enable isc-dhcp-server
-</span></span></code></pre></div><h6 id="step-3emspboot-mode--uefi">
+</span></span></code></pre></div><h3 id="step-3emspboot-mode--uefi">
   Step 3. Boot Mode = UEFI.
   <a class="heading-link" href="#step-3emspboot-mode--uefi">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <ol>
 <li>Install Packages.</li>
 </ol>
@@ -422,12 +443,12 @@ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s e
 <li>Reboot and set Boot mode = UEFI, Boot Option = Network.</li>
 <li>After Reboot will Boot Success.</li>
 </ol>
-<h6 id="step-4emspboot-mode--legacy">
+<h3 id="step-4emspboot-mode--legacy">
   Step 4. Boot Mode = Legacy.
   <a class="heading-link" href="#step-4emspboot-mode--legacy">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <ol>
 <li>Install Packages.</li>
 </ol>
@@ -473,7 +494,7 @@ TFTP is a simple UDP-based protocol for receiving or sending a file and it’s e
   <div class="notice-content"><p>In Legacy Mode, Host can specific configure files with mac address.<br>
 Please Follow the following steps :</p>
 <ol>
-<li>Set Clinet Side Side Mac Address. (E.g. Mac Address is “AA:00:BB:01:CC:02”)</li>
+<li>Specify Clinet Side Mac Address. (E.g. Mac Address is “AA:00:BB:01:CC:02”)</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ifconfig
 </span></span></code></pre></div><ol start="2">
@@ -505,12 +526,12 @@ Please Follow the following steps :</p>
 </div>
 
 <hr>
-<h4 id="refer-docs">
+<h2 id="refer-docs">
   Refer Docs
   <a class="heading-link" href="#refer-docs">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h4>
+</h2>
 <ol>
 <li><a href="https://c-nergy.be/blog/?p=13334">Ubuntu 18.04 - Install UEFI Ubuntu client through PXE infrastructure</a></li>
 <li>PXE Boot infrastructure :</li>
@@ -545,6 +566,12 @@ Please Follow the following steps :</p>
       <nav>
         <ul>
         
+        
+          
+            <li>
+              <a href="/posts/setdhcp/">Install DHCP Server (IPv4&amp;IPv6)</a>
+            </li>
+          
         
           
             <li>

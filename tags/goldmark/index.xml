@@ -13,9 +13,8 @@
       <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/htmltag/</guid>
-      <description>Introduction    Since Hugo version 0.60, the default Markdown renderer has been changed to goldmark. In goldmark, the default is not to render raw HTML tags. So, You may has some promble like this :
-If you need use html tags, please follow me:
-Let&amp;rsquo;s Start !    Step 1. Modify config.toml    You don&amp;rsquo;t need install any packages. Just add below Msg in config.</description>
+      <description>Table of Contents   Introduction Let&amp;rsquo;s Start !  Step 1. Modify config.toml Step 2. Verify Config Success   Refer Docs    Introduction    Since Hugo version 0.60, the default Markdown renderer has been changed to goldmark. In goldmark, the default is not to render raw HTML tags. So, You may has some promble like this :
+If you need use html tags, please follow me:</description>
     </item>
     
   </channel>

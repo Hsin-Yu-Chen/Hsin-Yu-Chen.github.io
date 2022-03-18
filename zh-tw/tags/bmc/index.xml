@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BMC on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/bmc/</link>
+    <description>Recent content in BMC on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/bmc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BMC 架構</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/module/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/module/</guid>
+      <description>  Table of Contents   Baseboard Management Controller (BMC) Inter-Integrated Circuit (I²C) System Management Bus (SMBus) Power Management Bus (PMBus) Platform Environment Control Interface (PECI) General Purpose Input Output (GPIO) 專案階段    Baseboard Management Controller (BMC)     可監控傳感器 (Sensor) 或其他硬件設備 (Device) 的物理狀態。 IPMI 規範定義了平台管理子系統的標準化、抽象接口。 IPMI 包括用於擴展主機箱內板之間以及多個機箱之間的平台管理的接口定義。  Inter-Integrated Circuit (I²C)     僅使用兩條雙向通訊：Serial data line SDA 和 Serial clock line SCL。 主/從架構，即一個系統中通常只能有一個主設備，其他設備只能是從設備。 具有 7 位地址空間，很少使用 10 位擴展。 主要用作IC之間的通信。 適用於IC初始值的設定，或IC間控制信號的傳輸。  System Management Bus (SMBus)     源自 I²C。 由兩條線組成，一條是DATA線*(SDA)，另一條是CLOCK線(SCL)*。 收集系統上設備的信息，如電池容量、CPU溫度等，以便系統監視器根據獲取的信息通知操作系統進行電源管理處理。 用於與 ME 通信。  Power Management Bus (PMBus)     是SMBus的擴展。 主要用於電源轉換器或其他設備之間的通信。 用於與電源通訊。  Platform Environment Control Interface (PECI)     PECI 提供了一個接口，用於對 Intel 處理器和芯片組組件進行熱監控。 單線串行總線用於支持 DTS（數字熱傳感器）。 DTS 是帶有模數溫度轉換器的片上溫度傳感器。 當 DTS 感應到結果並將結果存入 CPU 寄存器（MSR）後，PECI就可以從DTS中獲取數據；其他情況只能通過BIOS直接獲取數據。 DTS 的 PECI 溫度報告為負。 In-Band 可以通過 MSR 寄存器讀取 CPU 內核的 DTS 溫度。 通過 PECI 讀取 CPU 核心 DTS 的溫度來控制CPU風扇或讀取其他傳感器（如磁盤的 SMART 資訊、DIMM 的溫度傳感器資訊等），將溫度值提供給內部風扇控制系統。 CPU 溫度有兩種讀取方式： (1) 通過 PECI 總線直接從 CPU 獲取溫度數據。 (2) 通過 IPMI 協議從南橋上的 ME 獲取 CPU 核心溫度，ME 需要通過 PECI 接口從 CPU 獲取溫度。  CPU 溫度讀取方式 General Purpose Input Output (GPIO)     GPIO 引腳可配置為輸入（GPI）或輸出（GPO）。 GPIO 引腳可以啟用/禁用。 輸入值是可讀的（通常是高或低）。 輸出值是可寫/可讀的。 輸入值通常可以用作 IRQ（通常用於喚醒事件）。  專案階段     Pre-EVT EVT DVT PVT  </description>
+    </item>
+    
+  </channel>
+</rss>

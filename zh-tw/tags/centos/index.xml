@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CentOS on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/centos/</link>
+    <description>Recent content in CentOS on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安裝 rsyslog Server</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/syslog/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/syslog/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  步驟 1. 安裝 rsyslog 相關套件 步驟 2. 編輯檔案 步驟 3. 重新啟動並驗證 service 狀態   參考資料    環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    系統日誌記錄協議 (Syslog) 是一種使網絡設備能夠使用標準消息格式與日誌記錄服務器通信的方法。
+重點：
+ 適用於 Unix、Linux 和其他 *nix，當然還有 MacOS。 消息通過用戶數據報協議 (UDP) 發送，即端口 514。 日誌消息包括：  時間戳 嚴重程度等級 設備 ID（包括 IP 地址） 活動特定信息    我們開始吧 ！    步驟 1.</description>
+    </item>
+    
+    <item>
+      <title>常用的安裝套件指令</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/cmd/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/cmd/</guid>
+      <description>以下是我經常使用的安裝套件指令。
+  Table of Contents   Ubuntu CentOS    Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
+    </item>
+    
+    <item>
+      <title>在 Linux 的 grub(grub2) 檔案中設置 Serial Console</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  Ubuntu 18.04 CentOS 7   參考資料    環境 :
+ OS : Ubuntu 18.04, CentOS 7  介紹    如果你有很多的電腦，但是沒有多餘的螢幕、鍵盤可供使用，那透過設置 Serial Console 會對你非常的有幫助。 若你要透過這樣的連接，需要事先準備一條 Serial Cable，如果你的裝置沒有額外的 Serial Ports，則可能需要一個 Multiport Serial Boards。
+因此，假設已安裝完成 Serial Cable 且已安裝好作業系統，接下來我會教你如何在 Linux 的 grub(grub2) 檔案中設置 Serial Console。
+我們開始吧 ！    Ubuntu 18.04     編輯 Grub 檔案   $ sudo vi /etc/default/grub 添加以下訊息至 /etc/default/grub 檔案 :</description>
+    </item>
+    
+  </channel>
+</rss>

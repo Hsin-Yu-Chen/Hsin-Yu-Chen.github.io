@@ -3,11 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hsin-yu-chen.github.io/categories/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/categories/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -15,24 +15,38 @@
                 href="https://hsin-yu-chen.github.io/categories/"
                 />
   </url><url>
-    <loc>https://hsin-yu-chen.github.io/tags/centos/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/posts/cmd/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/posts/raspberry/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/posts/syslog/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <loc>https://hsin-yu-chen.github.io/tags/dhcp/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/dhcp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/dhcp/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/setdhcp/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/setdhcp/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -41,26 +55,63 @@
                 />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/linux/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/series/linux/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/categories/linux/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/posts/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/tags/raspberry/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hsin-yu-chen.github.io/series/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/series/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/linux/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/series/linux/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/series/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/series/linux/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/categories/linux/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/categories/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/categories/linux/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/series/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/series/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -69,11 +120,11 @@
                 />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/tags/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -82,62 +133,297 @@
                 />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/ubuntu/</loc>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/ubuntu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/ubuntu/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/centos/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/centos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/centos/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/cmd/</loc>
+    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/cmd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/cmd/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/raspberry/</loc>
+    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/raspberry/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/posts/syslog/</loc>
+    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/syslog/"
+                />
+  </url><url>
+    <loc>https://hsin-yu-chen.github.io/tags/raspberry/</loc>
+    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/raspberry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/raspberry/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/goldmark/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/goldmark/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/goldmark/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/html/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/html/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/htmltag/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/htmltag/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/htmltag/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/hugo/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/hugo/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/series/hugo/</loc>
     <lastmod>2022-03-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/series/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/series/hugo/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/bmc/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/bmc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/bmc/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/series/bmc/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/series/bmc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/series/bmc/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/module/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/module/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/module/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/sol/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/sol/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/sol/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/sol/</loc>
     <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/sol/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/sol/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/pxe/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/pxe/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/pxe/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/legacy/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/legacy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/legacy/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/pxe/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/pxe/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/pxe/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/uefi/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/uefi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/uefi/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/posts/setuphugo/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/posts/setuphugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/posts/setuphugo/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/tags/github-pages/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/tags/github-pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hsin-yu-chen.github.io/tags/github-pages/"
+                />
   </url><url>
     <loc>https://hsin-yu-chen.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/about/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/about/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -148,8 +434,8 @@
     <loc>https://hsin-yu-chen.github.io/authors/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/authors/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/authors/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -160,8 +446,8 @@
     <loc>https://hsin-yu-chen.github.io/contact/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/contact/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/contact/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -172,8 +458,8 @@
     <loc>https://hsin-yu-chen.github.io/projects/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt-br"
-                href="https://hsin-yu-chen.github.io/pt-br/projects/"
+                hreflang="zh-tw"
+                href="https://hsin-yu-chen.github.io/zh-tw/projects/"
                 />
     <xhtml:link
                 rel="alternate"

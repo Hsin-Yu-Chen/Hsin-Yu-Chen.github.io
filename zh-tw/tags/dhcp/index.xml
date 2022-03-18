@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DHCP on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/dhcp/</link>
+    <description>Recent content in DHCP on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/dhcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安裝 DHCP Server (IPv4&amp;IPv6)</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  DHCP IPv4 DHCP IPv6      環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    動態主機配置協議 (DHCP) 是一種用於 Internet 協議 (IP) 網絡的網絡管理協議，用於自動為使用客戶端-服務器架構連接到網絡的設備分配 IP 地址和其他通信參數。
+它負責動態分配IP地址，當需要連接網絡中的任何電腦，它會向 DHCP 服務器請求 IP 地址。 DHCP 服務器將從數據庫中找到尚未使用的 IP 地址並提供給電腦使用。 使用後，電腦將IP地址返回給DHCP服務器，供其他在線電腦使用。
+ Note  更多的 DHCP 介紹，請參考 DHCP 維基百科.   我們開始吧 ！    DHCP IPv4     可參考安裝 PXE Server, 搜尋 : Step 2.</description>
+    </item>
+    
+  </channel>
+</rss>

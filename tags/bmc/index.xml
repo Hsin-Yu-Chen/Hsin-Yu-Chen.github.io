@@ -13,8 +13,8 @@
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hsin-yu-chen.github.io/posts/module/</guid>
-      <description>Baseboard Management Controller (BMC)     Service processor which can monitoring the physical state of servers, computers or other hardware devices with help of sensors.
-The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem. IPMI includes the definition of interfaces for extending platform management between board within the main chassis, and between multiple chassis.</description>
+      <description>Table of Contents   Baseboard Management Controller (BMC) Inter-Integrated Circuit (I²C) System Management Bus (SMBus) Power Management Bus (PMBus) Platform Environment Control Interface (PECI) General Purpose Input Output (GPIO) Project Stage    Baseboard Management Controller (BMC)     Service processor which can monitoring the physical state of servers, computers or other hardware devices with help of sensors.
+The IPMI specifications define standardized, abstracted interfaces to the platform management subsystem.</description>
     </item>
     
   </channel>

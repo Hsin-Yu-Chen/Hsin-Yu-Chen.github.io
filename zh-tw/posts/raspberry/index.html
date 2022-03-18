@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-tw">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="陳欣妤">
+    <meta name="description" content="Install Raspberry in Linux.">
+    <meta name="keywords" content="blog,desenvolvedor,pessoal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安裝樹莓"/>
+<meta name="twitter:description" content="Install Raspberry in Linux."/>
+
+    <meta property="og:title" content="安裝樹莓" />
+<meta property="og:description" content="Install Raspberry in Linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-10T00:00:00+00:00" /><meta property="og:site_name" content="Kelsey Chen" />
+<meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/syslog/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/cmd/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/sol/" /><meta property="og:see_also" content="https://hsin-yu-chen.github.io/zh-tw/posts/pxe/" />
+
+
+
+    <title>
+  安裝樹莓 · Kelsey Chen
+</title>
+
+    
+      <link rel="canonical" href="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.93.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/zh-tw">
+      Kelsey Chen
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/about/">關於</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/posts/">文章</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/projects/">專案</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/zh-tw/contact/">聯絡我</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="https://hsin-yu-chen.github.io/posts/raspberry/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://hsin-yu-chen.github.io/zh-tw/posts/raspberry/">
+              安裝樹莓
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-03-10T00:00:00Z">
+                March 10, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              閱讀時間 1 分鐘
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/zh-tw/categories/linux/">Linux</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/zh-tw/tags/raspberry/">Raspberry</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/zh-tw/tags/linux/">Linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <aside>
+    <header>
+    <h2>Table of Contents</h2>
+    </header>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事前準備">事前準備</a></li>
+    <li><a href="#我們開始吧-">我們開始吧 ！</a>
+      <ul>
+        <li><a href="#步驟-1emsp使用-raspberry-pi-imager-安裝-raspberry-pi-os">步驟 1. 使用 Raspberry Pi Imager 安裝 Raspberry Pi OS</a></li>
+        <li><a href="#步驟-2emspchoose-os--sd-card-then-write-to-sd-card">步驟 2. Choose OS &amp; SD card then write to SD card</a></li>
+        <li><a href="#步驟-3emsp安裝套件包">步驟 3. 安裝套件包</a></li>
+      </ul>
+    </li>
+    <li><a href="#參考資料">參考資料</a></li>
+  </ul>
+</nav>
+</aside>
+<h2 id="事前準備">
+  事前準備
+  <a class="heading-link" href="#%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>樹莓開發板</li>
+<li>作業系統 image</li>
+<li>SD Card</li>
+<li>HTMI to VGA、Power Code、Mouse、Keyboard&hellip; etc.</li>
+</ul>
+<h2 id="我們開始吧-">
+  我們開始吧 ！
+  <a class="heading-link" href="#%e6%88%91%e5%80%91%e9%96%8b%e5%a7%8b%e5%90%a7-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="步驟-1emsp使用-raspberry-pi-imager-安裝-raspberry-pi-os">
+  步驟 1. 使用 Raspberry Pi Imager 安裝 Raspberry Pi OS
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-1emsp%e4%bd%bf%e7%94%a8-raspberry-pi-imager-%e5%ae%89%e8%a3%9d-raspberry-pi-os">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>根據電腦的作業系統<a href="https://www.raspberrypi.com/software/">下載</a> 和安裝 Raspberry Pi Imager 並安裝到 SD card。</p>
+<p><img src="/posts/img/pi/1_download.png" alt="Download" title="Download"></p>
+<h3 id="步驟-2emspchoose-os--sd-card-then-write-to-sd-card">
+  步驟 2. Choose OS &amp; SD card then write to SD card
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-2emspchoose-os--sd-card-then-write-to-sd-card">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><img src="/posts/img/pi/2_install.png" alt="Install" title="Install"></p>
+<h3 id="步驟-3emsp安裝套件包">
+  步驟 3. 安裝套件包
+  <a class="heading-link" href="#%e6%ad%a5%e9%a9%9f-3emsp%e5%ae%89%e8%a3%9d%e5%a5%97%e4%bb%b6%e5%8c%85">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>樹莓的作業系統安裝完成後，你可以繼續安裝任何你需要的套件。</p>
+<blockquote>
+<p>可參考我常用的<a href="/zh-tw/posts/cmd">安裝套件指令</a></p>
+</blockquote>
+<ul>
+<li>Ubuntu</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt install &lt;packages_name&gt;
+</span></span></code></pre></div><ul>
+<li>CentOS</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yum install &lt;packages_name&gt;
+</span></span></code></pre></div><hr>
+<h2 id="參考資料">
+  參考資料
+  <a class="heading-link" href="#%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ol>
+<li><a href="https://kanchengzxdfgcv.blogspot.com/2017/11/raspberry-pi-3-ssh-vnc.html">Raspberry SSH</a></li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="參見-linux">
+        參見 Linux
+        <a class="heading-link" href="#%e5%8f%83%e8%a6%8b-linux">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="/zh-tw/posts/setdhcp/">安裝 DHCP Server (IPv4&amp;IPv6)</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/syslog/">安裝 rsyslog Server</a>
+            </li>
+          
+        
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/cmd/">常用的安裝套件指令</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/sol/">在 Linux 的 grub(grub2) 檔案中設置 Serial Console</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/zh-tw/posts/pxe/">安裝 PXE Server</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     陳欣妤 
+    ·
+    
+    技術支援 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.8fb86376a16e684af472a329aef502dbebcfab65ce264e9750d144912947c602.js" integrity="sha256-j7hjdqFuaEr0cqMprvUC2&#43;vPq2XOJk6XUNFEkSlHxgI="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

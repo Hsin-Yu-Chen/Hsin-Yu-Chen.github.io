@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UEFI on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/uefi/</link>
+    <description>Recent content in UEFI on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/uefi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安裝 PXE Server</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/pxe/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/pxe/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  步驟 1. TFTP Server 相關設置 步驟 2. DHCP Server (IPv4) 相關設置 步驟 3. Boot Mode = UEFI. 步驟 4. Boot Mode = Legacy.   參考資料    環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    PXE 是 Preboot Execution Environment的縮寫，意思是開機前的執行環境，由Intel設計，可以使計算機通過網路啟動的協議。要達成這個 PXE 必須要有兩個環節：
+ 用戶端(Clinet)的網路卡必須要支援 PXE 用戶端功能，並且開機時選擇網路卡開機，這樣系統才會以網路卡進入 PXE 用戶端的程序。 PXE 伺服器必須要提供至少含有 DHCP 以及 TFTP 的服務才行！且其中：   DHCP 服務必須要能夠提供用戶端的網路參數之外，還得要告知用戶端 TFTP 所在的位置。 TFTP 則是提供用戶端 boot loader 及 kernel file 下載點的重要服務。  PXE 的 server/client 相關的運作流程示意圖 (來源: 鳥哥的Linux 私房菜) 歸納幾個重點：</description>
+    </item>
+    
+  </channel>
+</rss>

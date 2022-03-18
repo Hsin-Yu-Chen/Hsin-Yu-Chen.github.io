@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安裝 DHCP Server (IPv4&amp;IPv6)</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/setdhcp/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  DHCP IPv4 DHCP IPv6      環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    動態主機配置協議 (DHCP) 是一種用於 Internet 協議 (IP) 網絡的網絡管理協議，用於自動為使用客戶端-服務器架構連接到網絡的設備分配 IP 地址和其他通信參數。
+它負責動態分配IP地址，當需要連接網絡中的任何電腦，它會向 DHCP 服務器請求 IP 地址。 DHCP 服務器將從數據庫中找到尚未使用的 IP 地址並提供給電腦使用。 使用後，電腦將IP地址返回給DHCP服務器，供其他在線電腦使用。
+ Note  更多的 DHCP 介紹，請參考 DHCP 維基百科.   我們開始吧 ！    DHCP IPv4     可參考安裝 PXE Server, 搜尋 : Step 2.</description>
+    </item>
+    
+    <item>
+      <title>安裝 rsyslog Server</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/syslog/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/syslog/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  步驟 1. 安裝 rsyslog 相關套件 步驟 2. 編輯檔案 步驟 3. 重新啟動並驗證 service 狀態   參考資料    環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    系統日誌記錄協議 (Syslog) 是一種使網絡設備能夠使用標準消息格式與日誌記錄服務器通信的方法。
+重點：
+ 適用於 Unix、Linux 和其他 *nix，當然還有 MacOS。 消息通過用戶數據報協議 (UDP) 發送，即端口 514。 日誌消息包括：  時間戳 嚴重程度等級 設備 ID（包括 IP 地址） 活動特定信息    我們開始吧 ！    步驟 1.</description>
+    </item>
+    
+    <item>
+      <title>常用的安裝套件指令</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/cmd/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/cmd/</guid>
+      <description>以下是我經常使用的安裝套件指令。
+  Table of Contents   Ubuntu CentOS    Ubuntu    # Update &amp;amp; Upgrade $ sudo apt update $ sudo apt upgrade  # Ipmitool &amp;amp; Openipmi $ sudo apt install ipmitool $ sudo apt-get install openipmi  # SSH $ sudo apt-get install openssh-server  # ifconfig $ sudo apt install net-tools  # tree $ sudo apt install tree CentOS    # Update &amp;amp; Upgrade $ yum update $ yum upgrade  # Ipmitool &amp;amp; Openipmi $ yum install ipmitool -y $ yum install OpenIPMI ipmitool  # SSH $ yum install openssh openssh-server  # ifconfig $ yum install net-tools  # tree $ yum install tree -y </description>
+    </item>
+    
+    <item>
+      <title>在 Linux 的 grub(grub2) 檔案中設置 Serial Console</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  Ubuntu 18.04 CentOS 7   參考資料    環境 :
+ OS : Ubuntu 18.04, CentOS 7  介紹    如果你有很多的電腦，但是沒有多餘的螢幕、鍵盤可供使用，那透過設置 Serial Console 會對你非常的有幫助。 若你要透過這樣的連接，需要事先準備一條 Serial Cable，如果你的裝置沒有額外的 Serial Ports，則可能需要一個 Multiport Serial Boards。
+因此，假設已安裝完成 Serial Cable 且已安裝好作業系統，接下來我會教你如何在 Linux 的 grub(grub2) 檔案中設置 Serial Console。
+我們開始吧 ！    Ubuntu 18.04     編輯 Grub 檔案   $ sudo vi /etc/default/grub 添加以下訊息至 /etc/default/grub 檔案 :</description>
+    </item>
+    
+    <item>
+      <title>安裝 PXE Server</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/pxe/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/pxe/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  步驟 1. TFTP Server 相關設置 步驟 2. DHCP Server (IPv4) 相關設置 步驟 3. Boot Mode = UEFI. 步驟 4. Boot Mode = Legacy.   參考資料    環境 :
+ OS : Ubuntu 18.04 Desktop  介紹    PXE 是 Preboot Execution Environment的縮寫，意思是開機前的執行環境，由Intel設計，可以使計算機通過網路啟動的協議。要達成這個 PXE 必須要有兩個環節：
+ 用戶端(Clinet)的網路卡必須要支援 PXE 用戶端功能，並且開機時選擇網路卡開機，這樣系統才會以網路卡進入 PXE 用戶端的程序。 PXE 伺服器必須要提供至少含有 DHCP 以及 TFTP 的服務才行！且其中：   DHCP 服務必須要能夠提供用戶端的網路參數之外，還得要告知用戶端 TFTP 所在的位置。 TFTP 則是提供用戶端 boot loader 及 kernel file 下載點的重要服務。  PXE 的 server/client 相關的運作流程示意圖 (來源: 鳥哥的Linux 私房菜) 歸納幾個重點：</description>
+    </item>
+    
+    <item>
+      <title>Hugo 安裝教學</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/setuphugo/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/setuphugo/</guid>
+      <description>Table of Contents   Hugo 是什麼 ? 我們開始吧 ！  步驟 1. 安裝 Hugo 步驟 2. 建立新的專案 步驟 3. 添加主題 步驟 4. 啟動 Hugo Server 步驟 5. 將專案 Push 到 Github 步驟 6. Have Fun      環境 ：
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  Hugo 是什麼 ?    Hugo 是一個用 Go 編寫的快速、現代的靜態網站生成器。
+ Note  更多的 Hugo 介紹, 請參考 Hugo 網站.</description>
+    </item>
+    
+  </channel>
+</rss>

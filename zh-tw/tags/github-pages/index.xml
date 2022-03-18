@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github Pages on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/github-pages/</link>
+    <description>Recent content in Github Pages on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 安裝教學</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/setuphugo/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/setuphugo/</guid>
+      <description>Table of Contents   Hugo 是什麼 ? 我們開始吧 ！  步驟 1. 安裝 Hugo 步驟 2. 建立新的專案 步驟 3. 添加主題 步驟 4. 啟動 Hugo Server 步驟 5. 將專案 Push 到 Github 步驟 6. Have Fun      環境 ：
+ OS : Ubuntu 18.04 Desktop Hugo : v0.93.0  Hugo 是什麼 ?    Hugo 是一個用 Go 編寫的快速、現代的靜態網站生成器。
+ Note  更多的 Hugo 介紹, 請參考 Hugo 網站.</description>
+    </item>
+    
+  </channel>
+</rss>

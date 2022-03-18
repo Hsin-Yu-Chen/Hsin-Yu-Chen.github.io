@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SOL on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/sol/</link>
+    <description>Recent content in SOL on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/sol/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Linux 的 grub(grub2) 檔案中設置 Serial Console</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/sol/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  Ubuntu 18.04 CentOS 7   參考資料    環境 :
+ OS : Ubuntu 18.04, CentOS 7  介紹    如果你有很多的電腦，但是沒有多餘的螢幕、鍵盤可供使用，那透過設置 Serial Console 會對你非常的有幫助。 若你要透過這樣的連接，需要事先準備一條 Serial Cable，如果你的裝置沒有額外的 Serial Ports，則可能需要一個 Multiport Serial Boards。
+因此，假設已安裝完成 Serial Cable 且已安裝好作業系統，接下來我會教你如何在 Linux 的 grub(grub2) 檔案中設置 Serial Console。
+我們開始吧 ！    Ubuntu 18.04     編輯 Grub 檔案   $ sudo vi /etc/default/grub 添加以下訊息至 /etc/default/grub 檔案 :</description>
+    </item>
+    
+  </channel>
+</rss>

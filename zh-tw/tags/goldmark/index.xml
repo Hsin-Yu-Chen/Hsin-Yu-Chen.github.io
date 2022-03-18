@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Goldmark on Kelsey Chen</title>
+    <link>https://hsin-yu-chen.github.io/zh-tw/tags/goldmark/</link>
+    <description>Recent content in Goldmark on Kelsey Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hsin-yu-chen.github.io/zh-tw/tags/goldmark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 .md 檔案裡 Html tags 無法使用</title>
+      <link>https://hsin-yu-chen.github.io/zh-tw/posts/htmltag/</link>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hsin-yu-chen.github.io/zh-tw/posts/htmltag/</guid>
+      <description>Table of Contents   介紹 我們開始吧 ！  步驟 1. 修改 config.toml 步驟 2. 驗證設置成功   參考資料    介紹    從 Hugo 0.60 版本開始，默認的 Markdown renderer 已更改為 goldmark。 在 goldmark 中，默認是不呈現原始 HTML 標籤。 所以，你可能會遇到這樣的問題：
+如果你需要使用到 html tags，請跟著以下的步驟 ：
+我們開始吧 ！    步驟 1. 修改 config.toml    不需要安裝任何套件，只需要添加以下訊息至 config.toml 檔案並且 enable unsafe :
+[markup]  [markup.goldmark]  [markup.goldmark.extensions]  definitionList = true  footnote = true  linkify = true  strikethrough = true  table = true  taskList = true  typographer = true  [markup.</description>
+    </item>
+    
+  </channel>
+</rss>

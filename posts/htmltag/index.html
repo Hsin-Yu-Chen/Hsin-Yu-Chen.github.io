@@ -101,7 +101,7 @@
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link" href="/posts/">Blog</a>
+              <a class="navigation-link" href="/posts">Blog</a>
             </li>
           
             <li class="navigation-item">
@@ -118,8 +118,6 @@
           
           
             
-          
-            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -127,7 +125,7 @@
                 
               
               <li class="navigation-item">
-                <a href="https://hsin-yu-chen.github.io/pt-br/">🇧🇷</a>
+                <a href="https://hsin-yu-chen.github.io/zh-tw/posts/htmltag/">中文</a>
               </li>
             
           
@@ -187,7 +185,24 @@
 
       <div>
         
-        <h2 id="introduction">
+        <aside>
+    <header>
+    <h2>Table of Contents</h2>
+    </header>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#lets-start-">Let&rsquo;s Start !</a>
+      <ul>
+        <li><a href="#step-1emspmodify-configtoml">Step 1. Modify config.toml</a></li>
+        <li><a href="#step-2emspverify-config-success">Step 2. Verify Config Success</a></li>
+      </ul>
+    </li>
+    <li><a href="#refer-docs">Refer Docs</a></li>
+  </ul>
+</nav>
+</aside>
+<h2 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
     <i class="fa fa-link" aria-hidden="true"></i>
@@ -202,12 +217,12 @@
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
 </h2>
-<h6 id="step-1emspmodify-configtoml">
+<h3 id="step-1emspmodify-configtoml">
   Step 1. Modify config.toml
   <a class="heading-link" href="#step-1emspmodify-configtoml">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <p>You don&rsquo;t need install any packages. Just add below Msg in <code>config.toml</code> file and enable the <code>unsafe</code> mode :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[markup]
 </span></span><span style="display:flex;"><span>  [markup.goldmark]
@@ -229,21 +244,21 @@
 </span></span><span style="display:flex;"><span>      hardWraps = false
 </span></span><span style="display:flex;"><span>      unsafe = true
 </span></span><span style="display:flex;"><span>      xhtml = false
-</span></span></code></pre></div><h6 id="step-2emspverify-config-success">
+</span></span></code></pre></div><h3 id="step-2emspverify-config-success">
   Step 2. Verify Config Success
   <a class="heading-link" href="#step-2emspverify-config-success">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h6>
+</h3>
 <p>Save <code>config.toml</code> file, then you may see config success.</p>
 <p><img src="/posts/img/html/after.png" alt="After" title="After"></p>
 <hr>
-<h4 id="refer-docs">
+<h2 id="refer-docs">
   Refer Docs
   <a class="heading-link" href="#refer-docs">
     <i class="fa fa-link" aria-hidden="true"></i>
   </a>
-</h4>
+</h2>
 <ol>
 <li><a href="https://gohugo.io/getting-started/configuration-markup#goldmark">Goldmark</a></li>
 </ol>
